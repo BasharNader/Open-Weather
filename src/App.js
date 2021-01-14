@@ -3,7 +3,8 @@ import City from "./components/City";
 import Form from "./components/Form";
 import Stats from "./components/Stats";
 import MainStat from "./components/MainStat";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { getCityWeather } from "./http";
 
 function App() {
   const [state, setState] = useState("");
@@ -17,7 +18,20 @@ function App() {
     { title: "title4", value: "value1" },
   ]);
 
-  
+  useEffect(() => {
+    getCityWeather("Rasht").then((data) => {
+      setCity(data.name);
+      setState(data.weather[0].main);
+      setDesc(data.weather[0].description);
+      setStats([
+        { title: "Temperature", value: data.main.temp },
+        { title: "Feels Like", value: data.main.feels_like },
+        { title: "Pressure", value: data.main.pressure },
+        { title: "Icon", value: data.weather[0].icon },
+      ]);
+    });
+  }, []);
+
   return (
     <div className="App">
       <h2>Open Weather App</h2>
