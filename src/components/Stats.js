@@ -5,7 +5,7 @@ import './Stats.css';
 const Stats = ({stats}) => {
   return <div className="Stats">
     {
-      stats.map(stat => <StatItem {...stat} />)
+      stats.map((stat, i) => <StatItem  key={i} {...stat} />)
     }
   </div>;
 };
