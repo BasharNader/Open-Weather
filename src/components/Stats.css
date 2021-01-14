@@ -1,0 +1,12 @@
+.Stats {
+  margin-top: 3rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 1rem;
+  align-items: center;
+  justify-items: center;
+}
+
+.StatItem {
+  text-align: center;
+}
