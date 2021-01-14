@@ -1,0 +1,24 @@
+.Form {
+  margin-bottom: 1rem;
+}
+
+.Form .form-input {
+ outline: none; 
+ padding: 0.25rem 0.5rem;
+ font-size: 1.25rem;
+ color: #333;
+ width: 100%;
+ border-radius: 0;
+ border: 1px solid #999;
+ margin-bottom: 1rem;
+}
+
+.Form .form-submit {
+  width: 100%;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  padding: 0.5rem;
+  background-color: royalblue;
+  color: #fff;
+}
