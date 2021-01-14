@@ -1,12 +1,18 @@
 .Stats {
-  margin-top: 3rem;
+  margin-top: 1rem;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 1rem;
-  align-items: flex-start;
+  align-items: center;
   justify-items: center;
 }
 
 .StatItem {
   text-align: center;
+  font-size: 1.25rem;
+}
+
+.icon-img {
+  width: 125px;
+  height: 125px;
 }
