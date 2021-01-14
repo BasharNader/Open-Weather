@@ -6,3 +6,9 @@
   box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
   padding: 1rem;
 }
+
+.App h2,
+.App .city {
+  text-align: center;
+  margin-bottom: 1rem;
+}
