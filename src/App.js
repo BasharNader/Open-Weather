@@ -10,7 +10,7 @@ function App() {
   const [state, setState] = useState("");
   const [desc, setDesc] = useState("");
   const [city, setCity] = useState("");
-  const [alert, setAlert] = useState("222");
+  const [alert, setAlert] = useState("");
 
   const [stats, setStats] = useState([
     { title: "title1", value: "value1" },
@@ -22,18 +22,25 @@ function App() {
   const getWeather = (city) => {
     getCityWeather(city)
       .then((data) => {
-        setCity(data.name);
-        setState(data.weather[0].main);
-        setDesc(data.weather[0].description);
-        setStats([
-          { title: "Temperature", value: data.main.temp },
-          { title: "Feels Like", value: data.main.feels_like },
-          { title: "Pressure", value: data.main.pressure },
-          { title: "Icon", value: data.weather[0].icon },
-        ]);
+        if (data.cod === "404") {
+          throw new Error("Cannot get city with name of " + city);
+        } else {
+          setCity(data.name);
+          setState(data.weather[0].main);
+          setDesc(data.weather[0].description);
+          setStats([
+            { title: "Temperature", value: data.main.temp },
+            { title: "Feels Like", value: data.main.feels_like },
+            { title: "Pressure", value: data.main.pressure },
+            { title: "Icon", value: data.weather[0].icon },
+          ]);
+        }
       })
       .catch((e) => {
-        console.log();
+        setAlert("Cannot get city of " + city);
+        setTimeout(() => {
+          setAlert("");
+        }, 3000);
       });
   };
 
